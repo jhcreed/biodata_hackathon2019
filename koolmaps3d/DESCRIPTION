@@ -1,0 +1,39 @@
+Package: koolmaps3d
+Type: Package
+Title: Makes your heatmap 3D! 
+Version: 0.1.0
+Author: The Hell Boy George Michael Jordan Creeds
+Description: Takes your data makes 3d heatmap comparing two populations.
+    Use four spaces when indenting paragraphs within the Description.
+License:  GPL-3
+Encoding: UTF-8
+LazyData: true
+Authors@R: 
+    c(person(given = "Jordan",
+             family = "Creed",
+             role = c("aut", "cre"),
+             email = "Jordan.H.Creed@moffitt.org"),
+      person(given = "Ram",
+             family = "Thapa",
+             role = "aut",
+             email = "Ram.Thapa@moffitt.org"),
+      person(given = "Zachary",
+             family = "Thompson",
+             role = "aut",
+             email = "Zachary.Thompson@moffitt.org"))
+Imports: 
+    rayshader,
+    ggplot2,
+    devtools (>= 2.0.0),
+    dplyr, 
+    Hmisc, 
+    tibble,
+    tidyr,
+    magrittr,
+    reshape
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat
+VignetteBuilder: 
+    knitr
