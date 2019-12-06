@@ -12,8 +12,8 @@ dual_matrix <- function(dataset1, dataset2, snp1, snp2,
                   pos =  paste(dataset2[[pos1]],"|",dataset2[[pos2]],sep=""))
   
   # pulling snps only in one dataset or the other
-  rsnum <- setdiff(dataset1[[rsnum]], dataset2[[rsnum]]) 
-  pos <- setdiff(dataset1[[pos]], dataset2[[pos]]) 
+  rsnum <- setdiff(dataset1[["rsnum"]], dataset2[["rsnum"]]) 
+  pos <- setdiff(dataset1[["pos"]], dataset2[["pos"]]) 
   
   # create data table
   rowstoadd <- data.frame(rsnum, pos, stringsAsFactors = FALSE)
@@ -62,16 +62,16 @@ dual_matrix <- function(dataset1, dataset2, snp1, snp2,
   # make two data matrices for plotting
   data1 <- dftest3 %>%
     dplyr::select(pos1,pos2,ld1) %>%
-    dplyr::pivot_wider(names_from = pos2,
+    tidyr::pivot_wider(names_from = pos2,
                 values_from = ld1,
                 values_fill = list(ld1 = 0)) %>%
     magrittr::set_rownames(.$pos1) %>%
-    dplryr::select(-pos1) %>%
+    dplyr::select(-pos1) %>%
     as.matrix
   
   data2 <- dftest3 %>%
     dplyr::select(pos1,pos2,other_ld) %>%
-    dplyr::pivot_wider(names_from = pos2,
+    tidyr::pivot_wider(names_from = pos2,
                 values_from = other_ld,
                 values_fill = list(other_ld = 0)) %>%
     magrittr::set_rownames(.$pos1) %>%
@@ -87,4 +87,5 @@ dual_matrix <- function(dataset1, dataset2, snp1, snp2,
   row.names(plot_data) <- row.names(data1)
   colnames(plot_data) <- colnames(data1)
   
+  return(plot_data)
 }
