@@ -40,7 +40,7 @@ rsdf$pos1 <- as.character(posdf$pos1)
 rsdf$pos2 <- as.character(posdf$pos2)
 
 
-tail(dftest2 <- bind_cols(dftest,thedf))
+tail(dftest2 <- bind_cols(dftest,rsdf))
 
 dftest2 <- dftest2 %>% mutate( X1 = ifelse(is.na(X1), pos1, X1),
                                X2 = ifelse(is.na(X2), pos1, X2),
