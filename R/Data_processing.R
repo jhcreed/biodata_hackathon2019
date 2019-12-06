@@ -16,8 +16,8 @@ jpt_subset <- jpt_subset %>% mutate(rsnum =  paste(jpt_subset$X4,"|",jpt_subset$
                                       pos =  paste(jpt_subset$X1,"|",jpt_subset$X2,sep="")
                                     )
 
-str(ceu_subet) 
-str(jpt_subset)
+str(ceu_subset) 
+str(jpt_subset) 
 
 # now behold the power of BASE R! 
 rsnum <- setdiff(ceu_subset$rsnum, jpt_subset$rsnum) 
